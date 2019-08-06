@@ -32,3 +32,12 @@ new post
 posts list
 
 ![post list](./readme/postlist.png?raw=true "list of posts page")
+
+## Database
+`sails-admin` uses a MongoDB for storing all the data.
+
+
+## Authors
+
+* **Pejman Hadavi**
+
