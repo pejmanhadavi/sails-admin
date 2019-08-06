@@ -16,7 +16,7 @@
 
 Visit: [http://127.0.0.1:1337/admin](http://127.0.0.1:8080/1337)
 
-email: example@example.com
+email: example@example.com <br>
 password: admin
 
 #### Demo images
