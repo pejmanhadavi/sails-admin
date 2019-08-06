@@ -1,0 +1,24 @@
+
+<% if (typeof req.session.flash != 'undefined' && req.session.flash.error) { %>
+    <div class="uk-text-danger">
+        <%= req.session.flash.error %>
+        <% req.session.flash = [] %>
+    </div>
+<% } %>
+
+
+<% if (typeof req.session.flash != 'undefined' && req.session.flash.warning) { %>
+    <div class="uk-text-warning">
+        <%= req.session.flash.warning %>
+        <% req.session.flash = [] %>
+    </div>
+<% } %>
+
+
+
+<% if (typeof req.session.flash != 'undefined' && req.session.flash.success) { %>
+    <div class="uk-text-success">
+        <%= req.session.flash.success %>
+        <% req.session.flash = [] %>
+    </div>
+<% } %>

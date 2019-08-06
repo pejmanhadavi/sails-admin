@@ -1,0 +1,64 @@
+<!doctype html>
+<!--[if lte IE 9]> <html class="lte-ie9" lang="en" dir="rtl"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en" dir="rtl"> <!--<![endif]-->
+
+<!-- Mirrored from altair_html_rtl.tzdthemes.com//login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 21:03:53 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Remove Tap Highlight on Windows Phone IE -->
+    <meta name="msapplication-tap-highlight" content="no"/>
+
+    <title>صفحه ورود</title>
+
+    <!-- uikit rtl -->
+    <link rel="stylesheet" href="/admin/css/uikit.rtl.css" media="all">
+
+    <!-- altair admin login page -->
+    <link rel="stylesheet" href="/admin/css/login_page.min.css" />
+
+</head>
+<body class="login_page">
+
+    <div class="login_page_wrapper">
+        <div class="md-card" id="login_card">
+            <div class="md-card-content large-padding" id="login_form">
+                <form action="/admin/login" method="POST">
+                  <%- partial('./partials/flash.ejs') %>
+                    <div class="uk-form-row">
+                        <label for="login_username">ایمیل</label>
+                        <input class="md-input" type="email" id="login_username" name="email" />
+                    </div>
+                    <div class="uk-form-row">
+                        <label for="login_password">رمز عبور</label>
+                        <input class="md-input" type="password" id="login_password" name="password" />
+                    </div>
+                    <div class="uk-margin-medium-top">
+                         <input class="md-btn md-btn-primary md-btn-block md-btn-large" type="submit" id="login_password" value="ورود" />
+                    </div>
+                    <div class="uk-margin-top">
+                        <span class="icheck-inline">
+                            <input type="checkbox" name="rememberMe" id="login_page_stay_signed" data-md-icheck />
+                            <label for="login_page_stay_signed" class="inline-label">مرا به یاد داشته باش</label>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- common functions -->
+    <script src="/admin/js/common.min.js"></script>
+    <!-- uikit functions -->
+    <script src="/admin/js/uikit_custom.min.js"></script>
+    <!-- altair core functions -->
+    <script src="/admin/js/altair_admin_common.min.js"></script>
+
+    <!-- altair login page functions -->
+    <script src="/admin/js/pages/login.min.js"></script>
+
+</body>
+
+<!-- Mirrored from altair_html_rtl.tzdthemes.com//login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 21:04:00 GMT -->
+</html>

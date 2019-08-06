@@ -1,0 +1,283 @@
+<!doctype html>
+<!--[if lte IE 9]> <html class="lte-ie9" lang="en" dir="rtl"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en" dir="rtl"> <!--<![endif]-->
+
+
+<!-- Mirrored from altair_html_rtl.tzdthemes.com//page_blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 21:12:43 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Remove Tap Highlight on Windows Phone IE -->
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <title>پنل ادمین</title>
+
+
+    <!-- uikit rtl -->
+    <link rel="stylesheet" href="/admin/css/uikit.rtl.css" media="all">
+
+    <!-- flag icons -->
+    <link rel="stylesheet" href="/admin/icons/flags/flags.min.css" media="all">
+
+
+    <!-- altair admin -->
+    <link rel="stylesheet" href="/admin/css/main.min.css" media="all">
+
+    <!-- themes -->
+    <link rel="stylesheet" href="/admin/css/themes/themes_combined.min.css" media="all">
+
+    <!-- CKeditor -->
+    <script src="/ckeditor/ckeditor.js"></script>
+
+
+    <!-- dropify -->
+    <link rel="stylesheet" href="/admin/css/dropify/css/dropify.css">
+
+    <!-- matchMedia polyfill for testing media queries in JS -->
+    <!--[if lte IE 9]>
+        <script type="text/javascript" src="bower_components/matchMedia/matchMedia.js"></script>
+        <script type="text/javascript" src="bower_components/matchMedia/matchMedia.addListener.js"></script>
+        <link rel="stylesheet" href="/admin/css/ie.css" media="all">
+    <![endif]-->
+
+</head>
+<body class="disable_transitions sidebar_main_open sidebar_main_swipe">
+    <!-- main sidebar -->
+
+<div id="page_content">
+    <div id="page_content_inner">
+      <div class="md-card">
+                <div class="md-card-content large-padding">
+                    <form id="form_validation" class="uk-form-stacked" enctype="multipart/form-data" action="/admin/posts/edit/<%= post.id %>" method="POST">
+                      <%- partial('../partials/flash.ejs') %>
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row">
+                                    <label for="title">عنوان<span class="req">*</span></label>
+                                    <input type="text" name="title" required class="md-input"  value="<%= post.title %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row">
+                                    <label for="slug">slug<span class="req">*</span></label>
+                                    <input type="text" name="slug" required class="md-input" value="<%= post.slug %>"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row">
+                                    <label for="description">توضیحات کوتاه<span class="req">*</span></label>
+                                    <input type="text" name="description" required class="md-input" value="<%= post.description %>" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row uk-margin-top">
+                                <label for="content"><%= post.content %></label>
+                                  <textarea name="content" id="content" rows="10" cols="80">
+                                      <%= post.content %>
+                                  </textarea>
+                                  <script>
+                                      // Replace the <textarea id="editor1"> with a CKEditor
+                                      // instance, using default configuration.
+                                      CKEDITOR.replace( 'content' );
+                                  </script>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row uk-margin-top">
+                                  <select id="select_demo_4" name="category" data-md-selectize>
+                                      <option value=""><%= post.category.name %></option>
+                                      <optgroup label="دسته بندی ها">
+                                        <% categories.forEach( category => { %>
+                                          <option value="<%= category.id %>" name="category"><%= category.name %></option>
+                                        <% }); %>
+                                      </optgroup>
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row">
+                                    <label for="tags">تگ ها را بنویسید و با , از هم جدا کنید<span class="req">*</span></label>
+                                    <input type="text" name="tags" required class="md-input" value="<%= post.tags %>"/>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row uk-margin-top">
+                                    <h3 class="heading_a uk-margin-small-bottom">
+                                        عکس پست<span class="req">*</span>
+                                    </h3>
+                                    <input type="file" name="image"  id="input-file-a" class="dropify"/>
+                                    <img src="/posts/images/<%= post.id %>" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row uk-margin-top">
+                                    <h3 class="heading_a uk-margin-small-bottom">
+                                        thumbnail<span class="req">*</span>
+                                    </h3>
+                                    <input type="file" name="thumbnail" id="input-file-a" class="dropify"/>
+                                    <img height="250" width="250" src="/posts/thumbnails/<%= post.id%>" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row">
+                                    <span class="icheck-inline">
+                                        <input type="checkbox" name="published"  <% if(post.published) {%> checked <% } %>/>
+                                        <label for="isPublished" class="inline-label">منتشر شود<span class="req">*</span></label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-grid">
+                            <div class="uk-width-1-1">
+                                <button type="submit" class="md-btn md-btn-primary">زخیره</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+</div>
+
+    <!-- google web fonts -->
+
+    <!-- common functions -->
+    <script src="/admin/js/common.min.js"></script>
+    <!-- uikit functions -->
+    <script src="/admin/js/uikit_custom.min.js"></script>
+    <!-- altair common functions/helpers -->
+    <script src="/admin/js/altair_admin_common.min.js"></script>
+
+    <!--  form file input functions -->
+    <script src="/admin/js/pages/forms_file_input.min.js"></script>
+
+    <!--  dropify -->
+    <script src="/admin/js/dropify/dist/js/dropify.min.js"></script>
+
+    <script>
+        $(function() {
+            if(isHighDensity()) {
+                $.getScript( "/admin/js/custom/dense.min.js", function(data) {
+                    // enable hires images
+                    altair_helpers.retina_images();
+                });
+            }
+            if(Modernizr.touch) {
+                // fastClick (touch devices)
+                FastClick.attach(document.body);
+            }
+        });
+        $window.load(function() {
+            // ie fixes
+            altair_helpers.ie_fix();
+        });
+    </script>
+
+
+    <script>
+
+
+        // toggle mini sidebar
+
+            // change input's state to checked if mini sidebar is active
+            if((localStorage.getItem("altair_sidebar_mini") !== null && localStorage.getItem("altair_sidebar_mini") == '1') || $body.hasClass('sidebar_mini')) {
+                $mini_sidebar_toggle.iCheck('check');
+            }
+
+            $mini_sidebar_toggle
+                .on('ifChecked', function(event){
+                    $switcher.removeClass('switcher_active');
+                    localStorage.setItem("altair_sidebar_mini", '1');
+                    localStorage.removeItem('altair_sidebar_slim');
+                    location.reload(true);
+                })
+                .on('ifUnchecked', function(event){
+                    $switcher.removeClass('switcher_active');
+                    localStorage.removeItem('altair_sidebar_mini');
+                    location.reload(true);
+                });
+
+        // toggle slim sidebar
+
+            // change input's state to checked if mini sidebar is active
+            if((localStorage.getItem("altair_sidebar_slim") !== null && localStorage.getItem("altair_sidebar_slim") == '1') || $body.hasClass('sidebar_slim')) {
+                $slim_sidebar_toggle.iCheck('check');
+            }
+
+            $slim_sidebar_toggle
+                .on('ifChecked', function(event){
+                    $switcher.removeClass('switcher_active');
+                    localStorage.setItem("altair_sidebar_slim", '1');
+                    localStorage.removeItem('altair_sidebar_mini');
+                    location.reload(true);
+                })
+                .on('ifUnchecked', function(event){
+                    $switcher.removeClass('switcher_active');
+                    localStorage.removeItem('altair_sidebar_slim');
+                    location.reload(true);
+                });
+
+        // toggle boxed layout
+
+            if((localStorage.getItem("altair_layout") !== null && localStorage.getItem("altair_layout") == 'boxed') || $body.hasClass('boxed_layout')) {
+                $boxed_layout_toggle.iCheck('check');
+                $body.addClass('boxed_layout');
+                $(window).resize();
+            }
+
+            $boxed_layout_toggle
+                .on('ifChecked', function(event){
+                    $switcher.removeClass('switcher_active');
+                    localStorage.setItem("altair_layout", 'boxed');
+                    location.reload(true);
+                })
+                .on('ifUnchecked', function(event){
+                    $switcher.removeClass('switcher_active');
+                    localStorage.removeItem('altair_layout');
+                    location.reload(true);
+                });
+
+        // main menu accordion mode
+            if($sidebar_main.hasClass('accordion_mode')) {
+                $accordion_mode_toggle.iCheck('check');
+            }
+
+            $accordion_mode_toggle
+                .on('ifChecked', function(){
+                    $sidebar_main.addClass('accordion_mode');
+                })
+                .on('ifUnchecked', function(){
+                    $sidebar_main.removeClass('accordion_mode');
+                });
+
+
+        });
+    </script>
+</body>
+
+<!-- Mirrored from altair_html_rtl.tzdthemes.com//page_blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 05 Apr 2019 21:12:43 GMT -->
+</html>
