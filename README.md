@@ -4,6 +4,17 @@
 این ادمین پنل قرار بود روزی یک پنل ادمین واقعی باشد:) درحال حاضر امیدوارم حداقل جنبه اموزشی داشته باشد.
 </div>
 
+## Covered
+
+* Upload image ( and images )
+* authentication and authorization
+* policies ( roles and permissions )
+* WYSIWYG editor
+* associations
+* download link
+* async package
+
+
 ## Installation
 
 1. clone project with command '`git clone https://github.com/pejmanhadavi/sails-admin.git`'
