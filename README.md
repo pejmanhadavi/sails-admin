@@ -19,13 +19,16 @@ password: admin
 
 #### Demo images
 login page
+
 ![login page](./readme/login.png?raw=true "Login page"))
 
 dashboard
-[dashboard](./readme/dashboard.png)
+![dashboard](./readme/dashboard.png?raw=true "dashboard page")
 
 new post
-[new post](./readme/post.png)
 
-post list
-[post list](./readme/postlist.png)
+![new post](./readme/post.png?raw=true "add new post page")
+
+posts list
+
+![post list](./readme/postlist.png?raw=true "list of posts page")
