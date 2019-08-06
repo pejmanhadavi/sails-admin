@@ -27,7 +27,7 @@ dashboard
 
 new post
 
-![new post](./readme/post.png?raw=true "add new post page")
+![new post](./readme/newpost.png?raw=true "add new post page")
 
 posts list
 
