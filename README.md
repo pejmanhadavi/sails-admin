@@ -19,7 +19,7 @@ password: admin
 
 #### Demo images
 login page
-[login page](./readme/login.png)
+![login page](./readme/login.png?raw=true "Login page"))
 
 dashboard
 [dashboard](./readme/dashboard.png)
