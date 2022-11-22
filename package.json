@@ -16,7 +16,7 @@
     "sails-hook-grunt": "^3.1.0",
     "sails-hook-organics": "^1.0.0",
     "sails-hook-orm": "^2.1.1",
-    "sails-hook-sockets": "^1.5.5",
+    "sails-hook-sockets": "^2.0.3",
     "sails-hook-uploads": "^0.4.3",
     "sails-mongo": "^1.0.1"
   },
